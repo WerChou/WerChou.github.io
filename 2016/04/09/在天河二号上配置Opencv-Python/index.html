@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/09/在天河二号上配置Opencv-Python/index.html">
 <meta property="og:site_name" content="WerChou">
 <meta property="og:description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
-<meta property="og:updated_time" content="2016-04-20T14:24:16.557Z">
+<meta property="og:updated_time" content="2016-04-20T14:29:37.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="近期问题——在天河二号上配置环境">
 <meta name="twitter:description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
@@ -216,7 +216,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，<br>但是在运行我的Python代码时却报错如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> cv2</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ImportError: No module named cv2</span><br></pre></td></tr></table></figure></p>
-<p>发现了无法导入cv2，于是开始寻找解决办法。</p>
+<p>发现了无法导入cv2，于是开始寻找解决办法。<br><a id="more"></a></p>
 <h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在天河二号上，原有已经配置好很多常用的软件环境，通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module avail</span><br></pre></td></tr></table></figure></p>
 <p>可以查看当前可用加载使用的软件环境。<br>通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#xxx 是已经原生配置好的软件名称</span></span><br><span class="line">module load xxx</span><br></pre></td></tr></table></figure></p>
 <p>可以实现动态加载。</p>
