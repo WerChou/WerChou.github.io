@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>近期问题——在天河二号上配置环境 | WerChou</title>
+  <title>近期问题——在天河二号上运行程序 | WerChou</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
+  <meta name="description" content="问题在天河二号上，供用户使用的计算机资源有两部分：
+
+登陆节点
+计算节点顾名思义，登陆节点是用户通过远程登陆所在的节点，用户可以在登陆节点上进行脚本的编写，文件的删改等较为简单的操作，但是登陆节点是供所有用户使用，因此，如果在登陆节点运行程序的话将会极大影响其他用户的操作，而且程序效率也很低。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="近期问题——在天河二号上配置环境">
-<meta property="og:url" content="http://yoursite.com/2016/04/09/在天河二号上配置Opencv-Python/index.html">
+<meta property="og:title" content="近期问题——在天河二号上运行程序">
+<meta property="og:url" content="http://yoursite.com/2016/04/20/近期问题——在天河二号上运行程序/index.html">
 <meta property="og:site_name" content="WerChou">
-<meta property="og:description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
-<meta property="og:updated_time" content="2016-04-20T14:35:55.886Z">
+<meta property="og:description" content="问题在天河二号上，供用户使用的计算机资源有两部分：
+
+登陆节点
+计算节点顾名思义，登陆节点是用户通过远程登陆所在的节点，用户可以在登陆节点上进行脚本的编写，文件的删改等较为简单的操作，但是登陆节点是供所有用户使用，因此，如果在登陆节点运行程序的话将会极大影响其他用户的操作，而且程序效率也很低。">
+<meta property="og:updated_time" content="2016-04-20T15:05:34.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="近期问题——在天河二号上配置环境">
-<meta name="twitter:description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
+<meta name="twitter:title" content="近期问题——在天河二号上运行程序">
+<meta name="twitter:description" content="问题在天河二号上，供用户使用的计算机资源有两部分：
+
+登陆节点
+计算节点顾名思义，登陆节点是用户通过远程登陆所在的节点，用户可以在登陆节点上进行脚本的编写，文件的删改等较为简单的操作，但是登陆节点是供所有用户使用，因此，如果在登陆节点运行程序的话将会极大影响其他用户的操作，而且程序效率也很低。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -178,11 +187,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-在天河二号上配置Opencv-Python" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-近期问题——在天河二号上运行程序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/09/在天河二号上配置Opencv-Python/" class="article-date">
-  	<time datetime="2016-04-09T02:24:21.000Z" itemprop="datePublished">2016-04-09</time>
+      <a href="/2016/04/20/近期问题——在天河二号上运行程序/" class="article-date">
+  	<time datetime="2016-04-20T14:38:47.000Z" itemprop="datePublished">2016-04-20</time>
 </a>
     </div>
   
@@ -195,7 +204,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      近期问题——在天河二号上配置环境
+      近期问题——在天河二号上运行程序
     </h1>
   
 
@@ -215,27 +224,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，<br>但是在运行我的Python代码时却报错如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> cv2</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ImportError: No module named cv2</span><br></pre></td></tr></table></figure></p>
-<p>发现了无法导入cv2，于是开始寻找解决办法。<br><a id="more"></a></p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在天河二号上，原有已经配置好很多常用的软件环境，通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module avail</span><br></pre></td></tr></table></figure></p>
-<p>可以查看当前可用加载使用的软件环境。<br>通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#xxx 是已经原生配置好的软件名称</span></span><br><span class="line">module load xxx</span><br></pre></td></tr></table></figure></p>
-<p>可以实现动态加载。</p>
-<ol>
-<li>加载OpenCV<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module load opencv/2.4.11</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这一步结束后，尝试在python中import cv2 时还会报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libc.so.6: version `GLIBC_2.14<span class="string">' not found</span></span><br></pre></td></tr></table></figure></p>
-<p>看来是glibc的版本问题</p>
-<ol>
-<li><p>设置环境变量<br>这里我在 ~/lib 下编译并安装了glibc2.14版本，这里参照的是 <a href="http://blog.csdn.net/cpplang/article/details/8462768" target="_blank" rel="external"> 链接 </a>上的步骤，<br>并将其添加到环境变量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=~/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置PYTHONPATH</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">'~/lib'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>到这里其实就可以import cv2 了<br>在实际操作中，我将第3步的那两行代码直接加在最开始，然后就可以顺利的在python代码里import cv2！</p>
-</li>
-</ol>
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在天河二号上，供用户使用的计算机资源有两部分：</p>
+<ul>
+<li>登陆节点</li>
+<li>计算节点<br>顾名思义，登陆节点是用户通过远程登陆所在的节点，用户可以在登陆节点上进行脚本的编写，文件的删改等较为简单的操作，<br>但是登陆节点是供所有用户使用，因此，如果在登陆节点运行程序的话将会极大影响其他用户的操作，而且程序效率也很低。<a id="more"></a>
+<h3 id="具体解决办法"><a href="#具体解决办法" class="headerlink" title="具体解决办法"></a>具体解决办法</h3>天河二号提供了两种在计算节点运行程序的命令，分别是：</li>
+<li>yhrun</li>
+<li>yhbatch</li>
+</ul>
+<h4 id="yhrun命令"><a href="#yhrun命令" class="headerlink" title="yhrun命令"></a>yhrun命令</h4><p>天河二号提供yhrun命令供用户为程序分配任务数、每个任务多少处理器核心、计算节点数等等具体设置。详情可以通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yhrun -h</span><br></pre></td></tr></table></figure></p>
+<p>来进一步查看。<br>现在我有一段python程序：test.py ，那么怎么将其放在计算节点上运行呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#指定1个任务个数，不限定节点数目，指定分区为nsfc1</span></span><br><span class="line">yhrun -n 1 -p nsfc1 python test.py</span><br></pre></td></tr></table></figure></p>
+<p>然后天河二号的任务调度算法会将该程序分配一个JOBID，进入调度队列，并分配计算节点。</p>
+<p>可以通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yhq</span><br></pre></td></tr></table></figure></p>
+<p>来查看当前作业状况<br>但是，yhrun也有个缺点，就是当前登录窗口必须保持连接状态，如果关闭远程控制shell，或者远程shell窗口不响应，那么作业<br>将会被终止。<br>所以天河二号的官方手册更推荐使用第二种办法：yhbatch</p>
+<h4 id="yhbatch命令"><a href="#yhbatch命令" class="headerlink" title="yhbatch命令"></a>yhbatch命令</h4><p>看命令的名字就能大概猜出来，这个命令应该是用脚本的方式批处理。看了下官方手册果然是的。<br>那么具体怎么操作的呢？<br>其实很简单，其实就是把yhrun命令写在一个bash脚本里，yhbatch也和脚本中yhrun使用同样的设置。例如上面的命令，我就可以新建<br>一个脚本<strong>test.sh</strong>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim test.sh</span><br></pre></td></tr></table></figure></p>
+<p>下面是编辑脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">yhrun -n 1 -p nsfc1 python test.py</span><br></pre></td></tr></table></figure></p>
+<p>然后给脚本加执行权限，并使用yhbatch:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x test.sh</span><br><span class="line">yhbatch -n 1 -p nsfc1 test.sh</span><br></pre></td></tr></table></figure></p>
+<p>ok!这下即使我退出登录界面，也丝毫不影响我的作业在计算节点上飞快的运行啦！！</p>
 
       
     </div>
@@ -245,18 +250,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/20/近期问题——在天河二号上运行程序/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          近期问题——在天河二号上运行程序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/27/My Personnal_Page2.0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">My Personnal_Page2.0</div>
+    <a href="/2016/04/09/在天河二号上配置Opencv-Python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">近期问题——在天河二号上配置环境</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -272,7 +268,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="在天河二号上配置Opencv-Python" data-title="近期问题——在天河二号上配置环境" data-url="http://yoursite.com/2016/04/09/在天河二号上配置Opencv-Python/"></div>
+	<div class="ds-thread" data-thread-key="近期问题——在天河二号上运行程序" data-title="近期问题——在天河二号上运行程序" data-url="http://yoursite.com/2016/04/20/近期问题——在天河二号上运行程序/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
