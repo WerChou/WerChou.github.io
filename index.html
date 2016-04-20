@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/技术博客/" style="font-size: 10px;">技术博客</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/技术博客/" style="font-size: 20px;">技术博客</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -179,6 +179,83 @@
 
       <div class="body-wrap">
   
+    <article id="post-在天河二号上配置Opencv-Python" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/09/在天河二号上配置Opencv-Python/" class="article-date">
+  	<time datetime="2016-04-09T02:24:21.000Z" itemprop="datePublished">2016-04-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/09/在天河二号上配置Opencv-Python/">近期问题——在天河二号上配置环境</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，<br>但是在运行我的Python代码时却报错如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> cv2</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ImportError: No module named cv2</span><br></pre></td></tr></table></figure></p>
+<p>发现了无法导入cv2，于是开始寻找解决办法。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在天河二号上，原有已经配置好很多常用的软件环境，通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module avail</span><br></pre></td></tr></table></figure></p>
+<p>可以查看当前可用加载使用的软件环境。<br>通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#xxx 是已经原生配置好的软件名称</span></span><br><span class="line">module load xxx</span><br></pre></td></tr></table></figure></p>
+<p>可以实现动态加载。</p>
+<ol>
+<li>加载OpenCV<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module load opencv/2.4.11</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这一步结束后，尝试在python中import cv2 时还会报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libc.so.6: version `GLIBC_2.14<span class="string">' not found</span></span><br></pre></td></tr></table></figure></p>
+<p>看来是glibc的版本问题</p>
+<ol>
+<li><p>设置环境变量<br>这里我在 ~/lib 下编译并安装了glibc2.14版本，并将其添加到环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=~/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置PYTHONPATH</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">'~/lib'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>到这里其实就可以import cv2 了<br>在实际操作中，我将第3步的那两行代码直接加在最开始，然后就可以顺利的在python代码里import cv2！</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术博客/">技术博客</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-My Personnal_Page2.0" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -205,7 +282,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="My-Personnal-Page2-0"><a href="#My-Personnal-Page2-0" class="headerlink" title="My Personnal_Page2.0"></a>My Personnal_Page2.0</h3><p>之所以说这是我的第二版个人网站，是因为之前存放在本地的Hexo文件夹在安装Ubuntu系统的时候惨遭格式化。想寻求一种能够自动备份本地Hexo文件夹的方法，这样以后换系统或者换电脑就可以不用担心博客内容全部丢失了。</p>
+        <h3 id="Why-2-0"><a href="#Why-2-0" class="headerlink" title="Why 2.0?"></a>Why 2.0?</h3><p>之所以说这是我的第二版个人网站，是因为之前存放在本地的Hexo文件夹在安装Ubuntu系统的时候惨遭格式化。想寻求一种能够自动备份本地Hexo文件夹的方法，这样以后换系统或者换电脑就可以不用担心博客内容全部丢失了。</p>
 <p>于是就开始寻找各种解决方案，有把本地文件夹同步到Github上的，也有同步到Google Drive上的。开始我选择的第一种方案，但是在实际的操作过程中却遇到了麻烦，具体来说就是在同步的过程中，部分文件的文件名过长，<br>导致无法上传到到github上，于是就这样反反复复的尝试了几遍后还是无法解决。索性就采取了较为偷懒的第二种方法——同步网盘。<br>
       
     </div>
