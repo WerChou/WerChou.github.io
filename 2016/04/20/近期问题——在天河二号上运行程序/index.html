@@ -18,7 +18,7 @@
 
 登陆节点
 计算节点顾名思义，登陆节点是用户通过远程登陆所在的节点，用户可以在登陆节点上进行脚本的编写，文件的删改等较为简单的操作，但是登陆节点是供所有用户使用，因此，如果在登陆节点运行程序的话将会极大影响其他用户的操作，而且程序效率也很低。">
-<meta property="og:updated_time" content="2016-04-21T02:41:50.664Z">
+<meta property="og:updated_time" content="2016-04-21T02:43:52.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="近期问题——在天河二号上运行程序">
 <meta name="twitter:description" content="问题在天河二号上，供用户使用的计算机资源有两部分：
@@ -239,7 +239,7 @@
 <p>来查看当前作业状况<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JOBID PARTITION     NAME         USER ST       TIME  NODES NODELIST(REASON)</span><br></pre></td></tr></table></figure></p>
 <p>但是，yhrun也有个缺点，就是当前登录窗口必须保持连接状态，如果关闭远程控制shell，或者远程shell窗口不响应，那么作业<br>将会被终止。<br>所以天河二号的官方手册更推荐使用第二种办法：yhbatch</p>
 <h4 id="yhbatch命令"><a href="#yhbatch命令" class="headerlink" title="yhbatch命令"></a><strong>yhbatch命令</strong></h4><p>看命令的名字就能大概猜出来，这个命令应该是用脚本的方式批处理。看了下官方手册果然是的。<br>那么具体怎么操作的呢？<br>其实很简单，其实就是把yhrun命令写在一个bash脚本里，yhbatch也和脚本中yhrun使用同样的设置。例如上面的命令，我就可以新建<br>一个脚本<strong>test.sh</strong>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim test.sh</span><br></pre></td></tr></table></figure></p>
-<p>下面是编辑脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">$ yhrun -n 1 -p nsfc1 python test.py</span><br></pre></td></tr></table></figure></p>
+<p>下面是编辑脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">yhrun -n 1 -p nsfc1 python test.py</span><br></pre></td></tr></table></figure></p>
 <p>然后给脚本加执行权限，并使用yhbatch:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x test.sh</span><br><span class="line">yhbatch -n 1 -p nsfc1 test.sh</span><br></pre></td></tr></table></figure></p>
 <p>ok!这下即使我退出登录界面，也丝毫不影响我的作业在计算节点上飞快的运行啦！！</p>
 
