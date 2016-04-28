@@ -182,6 +182,10 @@ a {
   display: table;
   clear: both;
 }
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
 .inner {
   width: 1000px;
   margin: 0 auto;
