@@ -6,22 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Space-Shooter笔记——Shoting Shot | WerChou</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Update()首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：
+  <meta name="description" content="问题飞船的子弹造好后，还要保证随着飞船的移动而发射出去。下面对Player下的脚本进行修改，使其实现动态发射子弹的功能。
+Update()首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：
 
-Update is called every frame, if the MonoBehaviour is enabled.Update is the most commonly">
+Update is called every frame">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Space-Shooter笔记——Shoting Shot">
 <meta property="og:url" content="http://yoursite.com/2016/05/04/Space-Shooter笔记——Shoting Shot/index.html">
 <meta property="og:site_name" content="WerChou">
-<meta property="og:description" content="Update()首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：
+<meta property="og:description" content="问题飞船的子弹造好后，还要保证随着飞船的移动而发射出去。下面对Player下的脚本进行修改，使其实现动态发射子弹的功能。
+Update()首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：
 
-Update is called every frame, if the MonoBehaviour is enabled.Update is the most commonly">
-<meta property="og:updated_time" content="2016-05-04T15:04:16.084Z">
+Update is called every frame">
+<meta property="og:updated_time" content="2016-05-04T15:08:50.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Space-Shooter笔记——Shoting Shot">
-<meta name="twitter:description" content="Update()首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：
+<meta name="twitter:description" content="问题飞船的子弹造好后，还要保证随着飞船的移动而发射出去。下面对Player下的脚本进行修改，使其实现动态发射子弹的功能。
+Update()首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：
 
-Update is called every frame, if the MonoBehaviour is enabled.Update is the most commonly">
+Update is called every frame">
   
   
     <link rel="icon" href="/favicon.png">
@@ -221,7 +224,8 @@ Update is called every frame, if the MonoBehaviour is enabled.Update is the most
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Update"><a href="#Update" class="headerlink" title="Update()"></a>Update()</h3><p>首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。<br>这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：</p>
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>飞船的子弹造好后，还要保证随着飞船的移动而发射出去。下面对Player下的脚本进行修改，使其实现动态发射子弹的功能。</p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update()"></a>Update()</h3><p>首先，把之前隐藏的Player取消勾选，编辑Player Controller脚本。<br>这次我需要创建Update()函数，在Unity的官方文档中，MonoBehaviour.Update() 的介绍是：</p>
 <blockquote>
 <p>Update is called every frame, if the MonoBehaviour is enabled.<br>Update is the most commonly used function to implement any kind of game behaviour.<br>也就是每一帧更新时，执行函数内的代码。<br><a id="more"></a></p>
 <h3 id="Instantiate"><a href="#Instantiate" class="headerlink" title="Instantiate"></a>Instantiate</h3><p>官方文档中，Object.Instantiate()有两种重载形式，这里用的是：<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">Instantiate</span>(<span class="params">Object original, Vector3 position, Quaternion rotation</span>)</span>;</span><br></pre></td></tr></table></figure></p>
