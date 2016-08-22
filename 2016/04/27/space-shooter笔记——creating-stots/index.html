@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: 技术博客 | WerChou</title>
+  <title>space-shooter笔记——creating-stots | WerChou</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Coding My Life！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WerChou">
-<meta property="og:url" content="http://yoursite.com/tags/技术博客/index.html">
+  <meta name="description" content="创建“炮弹”对象第一步，需要先创建一个Empty Object作为炮弹，取名Bolt，然后创建Quad对象VFX并放在Bolt下作为它的子对象。
+炮弹的Texture 和Material当创建好上述两个对象后，我需要给炮弹添加Material来使其像一个激光束。在Texture中可以找到预设好的名为fx_bolt_orange的Texture，然后我需要根据这个Texture来创建一个Materi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="space-shooter笔记——creating-stots">
+<meta property="og:url" content="http://yoursite.com/2016/04/27/space-shooter笔记——creating-stots/index.html">
 <meta property="og:site_name" content="WerChou">
-<meta property="og:description" content="Coding My Life！">
+<meta property="og:description" content="创建“炮弹”对象第一步，需要先创建一个Empty Object作为炮弹，取名Bolt，然后创建Quad对象VFX并放在Bolt下作为它的子对象。
+炮弹的Texture 和Material当创建好上述两个对象后，我需要给炮弹添加Material来使其像一个激光束。在Texture中可以找到预设好的名为fx_bolt_orange的Texture，然后我需要根据这个Texture来创建一个Materi">
+<meta property="og:updated_time" content="2016-04-27T14:19:18.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WerChou">
-<meta name="twitter:description" content="Coding My Life！">
+<meta name="twitter:title" content="space-shooter笔记——creating-stots">
+<meta name="twitter:description" content="创建“炮弹”对象第一步，需要先创建一个Empty Object作为炮弹，取名Bolt，然后创建Quad对象VFX并放在Bolt下作为它的子对象。
+炮弹的Texture 和Material当创建好上述两个对象后，我需要给炮弹添加Material来使其像一个激光束。在Texture中可以找到预设好的名为fx_bolt_orange的Texture，然后我需要根据这个Texture来创建一个Materi">
   
   
     <link rel="icon" href="/favicon.png">
@@ -70,7 +74,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -177,146 +181,91 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-space-shooter笔记——creating-stots" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/04/Space-Shooter笔记——Shoting Shot/" class="archive-article-date">
-  	<time datetime="2016-05-04T14:23:24.000Z" itemprop="datePublished">May 4</time>
+    <div class="article-meta">
+      <a href="/2016/04/27/space-shooter笔记——creating-stots/" class="article-date">
+  	<time datetime="2016-04-27T13:55:38.000Z" itemprop="datePublished">2016-04-27</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/04/Space-Shooter笔记——Shoting Shot/">Space-Shooter笔记——Shoting Shot</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      space-shooter笔记——creating-stots
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术博客/">技术博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="创建“炮弹”对象"><a href="#创建“炮弹”对象" class="headerlink" title="创建“炮弹”对象"></a>创建“炮弹”对象</h2><p>第一步，需要先创建一个Empty Object作为炮弹，取名Bolt，然后创建Quad对象VFX并放在Bolt下作为它的子对象。</p>
+<h3 id="炮弹的Texture-和Material"><a href="#炮弹的Texture-和Material" class="headerlink" title="炮弹的Texture 和Material"></a>炮弹的Texture 和Material</h3><p>当创建好上述两个对象后，我需要给炮弹添加Material来使其像一个激光束。<br>在Texture中可以找到预设好的名为<strong>fx_bolt_orange</strong>的Texture，然后我需要根据这个Texture来创建一个<br>Material，具体方法是新建一个Material并放在Materials文件夹下，可以通过拖拽的方法把希望使用的Texture放在刚刚创建<br>的Material上，也可以通过Material的<strong>Particle Texture</strong>来选取Texture。 </p>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/21/Unite'16 SHANGHAI/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unite&#39;16 SHANGHAI</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/20/近期问题——在天河二号上运行程序/" class="archive-article-date">
-  	<time datetime="2016-04-20T14:38:47.000Z" itemprop="datePublished">Apr 20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/20/近期问题——在天河二号上运行程序/">近期问题——在天河二号上运行程序</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术博客/">技术博客</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/09/近期问题——在天河二号上配置环境/" class="archive-article-date">
-  	<time datetime="2016-04-09T02:24:21.000Z" itemprop="datePublished">Apr 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/09/近期问题——在天河二号上配置环境/">近期问题——在天河二号上配置环境</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术博客/">技术博客</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/27/My Personnal_Page2.0/" class="archive-article-date">
-  	<time datetime="2016-03-27T13:13:29.000Z" itemprop="datePublished">Mar 27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/27/My Personnal_Page2.0/">My Personnal_Page2.0</a>
-    </h1>
-  
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="space-shooter笔记——creating-stots" data-title="space-shooter笔记——creating-stots" data-url="http://yoursite.com/2016/04/27/space-shooter笔记——creating-stots/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"werchou"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术博客/">技术博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -342,9 +291,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}

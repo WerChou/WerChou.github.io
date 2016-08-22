@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>近期问题——在天河二号上配置环境 | WerChou</title>
+  <title>Unity-SpaceShooter-MovePlayer | WerChou</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
+  <meta name="description" content="在构建好飞船和游戏的背景之后，我需要实现能够移动飞船的功能，这一部分将通过Script来实现。在Unity的Script中，可以使用C#,JavaScript和Boo三种语言进行编写，在这里我选择了C#，毕竟之前使用过，也相对更熟悉点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="近期问题——在天河二号上配置环境">
-<meta property="og:url" content="http://yoursite.com/2016/04/09/近期问题——在天河二号上配置环境/index.html">
+<meta property="og:title" content="Unity-SpaceShooter-MovePlayer">
+<meta property="og:url" content="http://yoursite.com/2016/03/27/Unity-SpaceShooter-MovePlayer/index.html">
 <meta property="og:site_name" content="WerChou">
-<meta property="og:description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
-<meta property="og:updated_time" content="2016-04-21T02:39:50.883Z">
+<meta property="og:description" content="在构建好飞船和游戏的背景之后，我需要实现能够移动飞船的功能，这一部分将通过Script来实现。在Unity的Script中，可以使用C#,JavaScript和Boo三种语言进行编写，在这里我选择了C#，毕竟之前使用过，也相对更熟悉点。">
+<meta property="og:updated_time" content="2016-03-28T09:11:13.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="近期问题——在天河二号上配置环境">
-<meta name="twitter:description" content="问题因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，但是在运行我的Python代码时却报错如下：1234&amp;gt;&amp;gt;&amp;gt; import cv2Traceback (most recent call last):  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;g">
+<meta name="twitter:title" content="Unity-SpaceShooter-MovePlayer">
+<meta name="twitter:description" content="在构建好飞船和游戏的背景之后，我需要实现能够移动飞船的功能，这一部分将通过Script来实现。在Unity的Script中，可以使用C#,JavaScript和Boo三种语言进行编写，在这里我选择了C#，毕竟之前使用过，也相对更熟悉点。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -178,11 +178,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-近期问题——在天河二号上配置环境" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Unity-SpaceShooter-MovePlayer" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/09/近期问题——在天河二号上配置环境/" class="article-date">
-  	<time datetime="2016-04-09T02:24:21.000Z" itemprop="datePublished">2016-04-09</time>
+      <a href="/2016/03/27/Unity-SpaceShooter-MovePlayer/" class="article-date">
+  	<time datetime="2016-03-27T13:13:29.000Z" itemprop="datePublished">2016-03-27</time>
 </a>
     </div>
   
@@ -195,7 +195,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      近期问题——在天河二号上配置环境
+      Unity-SpaceShooter-MovePlayer
     </h1>
   
 
@@ -215,27 +215,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>因为项目的需要，我需要在天河二号上布置Opencv-Pyhton的环境，天河二号上已经事先配置好了Python 和OpenCV 的环境，<br>但是在运行我的Python代码时却报错如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> cv2</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ImportError: No module named cv2</span><br></pre></td></tr></table></figure></p>
-<p>发现了无法导入cv2，于是开始寻找解决办法。<br><a id="more"></a></p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在天河二号上，原有已经配置好很多常用的软件环境，通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ module avail</span><br></pre></td></tr></table></figure></p>
-<p>可以查看当前可用加载使用的软件环境。<br>通过：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#xxx 是已经原生配置好的软件名称</span></span><br><span class="line">$ module load xxx</span><br></pre></td></tr></table></figure></p>
-<p>可以实现动态加载。</p>
-<ol>
-<li>加载OpenCV<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ module load opencv/2.4.11</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这一步结束后，尝试在python中import cv2 时还会报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libc.so.6: version `GLIBC_2.14<span class="string">' not found</span></span><br></pre></td></tr></table></figure></p>
-<p>看来是glibc的版本问题</p>
-<ol>
-<li><p>设置环境变量<br>这里我在 ~/lib 下编译并安装了glibc2.14版本，这里参照的是 <a href="http://blog.csdn.net/cpplang/article/details/8462768" target="_blank" rel="external"> 链接 </a>上的步骤，<br>并将其添加到环境变量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> LD_LIBRARY_PATH=~/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置PYTHONPATH</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">'~/lib'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>到这里其实就可以import cv2 了<br>在实际操作中，我将第3步的那两行代码直接加在最开始，然后就可以顺利的在python代码里import cv2！</p>
-</li>
-</ol>
+        <p>在构建好飞船和游戏的背景之后，我需要实现能够移动飞船的功能，这一部分将通过Script来实现。<br>在Unity的Script中，可以使用C#,JavaScript和Boo三种语言进行编写，在这里我选择了C#，毕竟之前使用过，也相对更熟悉点。<br><a id="more"></a></p>
+<h3 id="给对象添加Script"><a href="#给对象添加Script" class="headerlink" title="给对象添加Script"></a>给对象添加Script</h3><p>在Unity中，Script可以当作一个Component，在Inspector视窗中进行添加。新建的Script会默认在Assets根目录下，为了更好的<br>组织，我们可以新建一个“Scripts”文件夹来专门存放脚本。<br>在Unity中，Script的默认编辑器是MonoDeveloper，我更习惯用VS，需要注意的是，如果选择VS，需要先在Assets-&gt;Import Package中导入VS工具包，<br>这样可以直接在VS中进行调试。</p>
+<h3 id="UPDATE-AND-FIXEDUPDATE"><a href="#UPDATE-AND-FIXEDUPDATE" class="headerlink" title="UPDATE AND FIXEDUPDATE"></a>UPDATE AND FIXEDUPDATE</h3><p>初始的Script会直接设置两个函数：void Start()和void Update()，我需要用的是void FixedUpdate()。这两个有啥区别呢？<br><strong>Update()</strong><br>每一帧都会被调用，通常用于：</p>
+<ul>
+<li>Moving Non-Physics Object</li>
+<li>Simple Timers</li>
+<li>Receiving Input<br>如果每一帧间隔的时间不一致，那么每个Update()被调用的时间也会变得不同。<br><strong>FixedUpdate()</strong><br>调用时间是一致的，和Physics Step相关，被调用后，会运行必要的物理运算，所以经常用于调整物理对象例如Rigidbody</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">UpdateAndFixedUpdate</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">FixedUpdate</span> (<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"FixedUpdate time :"</span> + Time.deltaTime);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span> (<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"Update time :"</span> + Time.deltaTime);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -245,20 +233,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/20/近期问题——在天河二号上运行程序/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/27/My Personnal_Page2.0/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          近期问题——在天河二号上运行程序
+          My Personnal_Page2.0
         
       </div>
     </a>
   
-  
-    <a href="/2016/03/27/My Personnal_Page2.0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">My Personnal_Page2.0</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -272,7 +255,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="近期问题——在天河二号上配置环境" data-title="近期问题——在天河二号上配置环境" data-url="http://yoursite.com/2016/04/09/近期问题——在天河二号上配置环境/" data-author-key="10"></div>
+	<div class="ds-thread" data-thread-key="Unity-SpaceShooter-MovePlayer" data-title="Unity-SpaceShooter-MovePlayer" data-url="http://yoursite.com/2016/03/27/Unity-SpaceShooter-MovePlayer/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
