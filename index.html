@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -206,25 +206,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="AI子系统"><a href="#AI子系统" class="headerlink" title="AI子系统"></a>AI子系统</h3><h4 id="状态基类"><a href="#状态基类" class="headerlink" title="状态基类"></a>状态基类</h4><p><strong>BaseState</strong> ：定义了状态基类，其他所有状态都继承了它。它提供了三个虚函数enter(),execute()和exit()，提供状态进入,执行和退出时的逻辑动作。</p>
-<p><strong>StateMachine</strong>: 定义了一个状态机类，维护当前状态的更新和状态转换。它有指向GameEnity的指针,还维护CurrentState, PreState等成员，还有Update(),ChangeState等方法。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BaseState</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">enter</span>(<span class="params">GameEnity *Owner</span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">execute</span>(<span class="params">GameEnity *Owner</span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">exit</span>(<span class="params">GameEnity *Owner</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">StateMachine</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    GameEnity * Owner;</span><br><span class="line">    BaseState * CurrentState;</span><br><span class="line">    BaseState * PreState;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(CurrentState)&#123;</span><br><span class="line">            CurrentState-&gt;execute(Owner);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="士兵的AI实现"><a href="#士兵的AI实现" class="headerlink" title="士兵的AI实现"></a>士兵的AI实现</h4><p>在游戏中，我把士兵分为两种类型的士兵：在一定范围内移动的士兵Tower Soldier和按一定路径行军的士兵Attack Soldier。分别为他们设计了两种不同的AI逻辑。<br><strong>TowerSoldierControl</strong>: 为在一定范围内移动的士兵设计的逻辑脚本。<br>该脚本除了存储士兵的一般属性外，还维护了一个状态列表和当前状态。<br>下面介绍它的两种状态：<br>TSPatrolState：巡逻状态<br>enter()，在巡逻半径内生成一个随机位置，并移动到该位置巡逻。<br>execute()，角色会在巡逻半径内随机位置进行巡逻，检查巡逻半径内是否有敌人，如果有，转为TSAttackState状态。<br>TSAttackState：进攻状态<br>enter():判断当前敌人是否为空，如果不为空，判断敌人是否在攻击半径内，如果在，移动到敌人位置并攻击。如果敌人出了攻击半径，重置敌人对象，继续寻找，如果攻击半径内确定找不到敌人了，会转为TSPatrolState状态。</p>
-<p><strong>AttackSoldierControl</strong>：为按一定路径行军的士兵设计的逻辑脚本。<br>该脚本大致思想和上面差不多，也是维护了一个状态列表和当前状态。此外，还维护了一个行军路径列表，用来控制士兵的行军路线。<br>下面介绍下他的两种状态<br>ASPatrolState：行军时的巡逻状态<br>execute(): 检查距离下一个路径点的距离，如果小于0.5，更新路径点。检查攻击范围内是否有敌人，如果有，转为ASAttackState状态。<br>ASAttackState：行军时的攻击状态<br>execute(): 也是判断敌人是否为空，如果不为空，判断是否在攻击范围内，不同之处在于，角色不移动到敌人位置，而是继续在路径上。如果攻击范围内找不到敌人，转为ASPatrolState状态。</p>
-<h4 id="飞船的AI实现"><a href="#飞船的AI实现" class="headerlink" title="飞船的AI实现"></a>飞船的AI实现</h4><p><strong>TowerFactory</strong>：负责基地生成不同的飞船。<br><strong>UFOArmyControl</strong>：防御型飞船的控制脚本，主要功能是批量的生成外星人小兵，并初始化他们。<br><strong>AttackTowerControl</strong>：进攻型飞船的控制脚本，主要是探测敌人是否在攻击范围内，如果存在敌人，则对敌人进行攻击。<br><strong>MovingTowerControl</strong>: 移动型飞船的控制脚本，主要功能有吸收敌人，反转敌人的行军路径等特殊的功能。</p>
-<h3 id="UI和交互的设计思路"><a href="#UI和交互的设计思路" class="headerlink" title="UI和交互的设计思路"></a>UI和交互的设计思路</h3><h4 id="UI的设计思路"><a href="#UI的设计思路" class="headerlink" title="UI的设计思路"></a>UI的设计思路</h4><p>我把UI分为三部分，分别是位于游戏上方的玩家状态栏，中间的菜单提示栏和下方的技能栏，下面一一介绍：</p>
-<ol>
-<li>玩家状态栏：有剩余金钱、剩余生命值、剩余时间和暂停按钮。前三个是通过GameKernel来更新，暂停按钮可以调出中间的菜单。</li>
-<li>菜单提示栏：有胜负提示栏、用户得分栏和三个菜单组成。其中胜负提示栏会在游戏结束时提示玩家输赢，得分栏会根据用户的表现不同提示1-3颗星星，三个菜单提供重新开始、返回开始界面和恢复游戏。</li>
-<li>技能栏：位于画面的左下方，有技能冷却时间倒计时提示，冷却时还有颜色区分。通过它可以建造移动型飞船。</li>
-</ol>
-<h4 id="交互的思路"><a href="#交互的思路" class="headerlink" title="交互的思路"></a>交互的思路</h4><p>因为时间有限，没有太过于考虑交互方面的细节，只是让用户完成游戏的同时，不会像一般的塔防一样，局限于固定的视角和位置，因此可以通过键盘改变视角和远近，同时也不会影响到鼠标的操作。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这个游戏从构思到做完大概花了5天多的时间，时间紧迫，但是，在一些玩法上，并没有局限于一般塔防的游戏元素，做了一些微创新。比如：</p>
-<ol>
-<li>因为是3D塔防，因此添加了可以移动视角和变换大小的功能。</li>
-<li>飞船不再局限在建造在基地上，添加了可以任意放置的飞船。</li>
-<li>敌人的行军局限不再是固定好的，游戏设计的时候可以通过配置选择敌人是按照固定路径行军或超目标自由行军。<br>在游戏脚本文件夹里，还有一个重构的文件夹，里面的脚本是我后期打算重构时用的，暂时没有被使用。<br>这个游戏原本设计的是玩家可以选择外星人或者地球人，但是因为时间有限，暂时完成了扮演外星人的部分。后面如果有时间我会通过重构的框架再添加地球人模块和更多的地图关卡。</li>
-</ol>
-
+<p><strong>StateMachine</strong>: 定义了一个状态机类，维护当前状态的更新和状态转换。它有指向GameEnity的指针,还维护CurrentState, PreState等成员，还有Update(),ChangeState等方法。<br>
       
     </div>
     
@@ -237,6 +219,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/24/GAD暑期训练营MiniGame3D塔防（下）/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
