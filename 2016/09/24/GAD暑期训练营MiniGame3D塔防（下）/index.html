@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>GAD暑期训练营MiniGame:3D塔防（下） | WerChou</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="AI子系统状态基类BaseState ：定义了状态基类，其他所有状态都继承了它。它提供了三个虚函数enter(),execute()和exit()，提供状态进入,执行和退出时的逻辑动作。
+StateMachine: 定义了一个状态机类，维护当前状态的更新和状态转换。它有指向GameEnity的指针,还维护CurrentState, PreState等成员，还有Update(),ChangeStat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GAD暑期训练营MiniGame:3D塔防（下）">
+<meta property="og:url" content="http://yoursite.com/2016/09/24/GAD暑期训练营MiniGame3D塔防（下）/index.html">
+<meta property="og:site_name" content="WerChou">
+<meta property="og:description" content="AI子系统状态基类BaseState ：定义了状态基类，其他所有状态都继承了它。它提供了三个虚函数enter(),execute()和exit()，提供状态进入,执行和退出时的逻辑动作。
+StateMachine: 定义了一个状态机类，维护当前状态的更新和状态转换。它有指向GameEnity的指针,还维护CurrentState, PreState等成员，还有Update(),ChangeStat">
+<meta property="og:updated_time" content="2017-03-16T08:28:44.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GAD暑期训练营MiniGame:3D塔防（下）">
+<meta name="twitter:description" content="AI子系统状态基类BaseState ：定义了状态基类，其他所有状态都继承了它。它提供了三个虚函数enter(),execute()和exit()，提供状态进入,执行和退出时的逻辑动作。
+StateMachine: 定义了一个状态机类，维护当前状态的更新和状态转换。它有指向GameEnity的指针,还维护CurrentState, PreState等成员，还有Update(),ChangeStat">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/imgload/avater.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Will Chou</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Coding My Life！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术博客">技术博客</a></li>
+				        
+							<li><a href="/tags/读书笔记">读书笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/werchou" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/WerChou" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/技术博客/" style="font-size: 20px;">技术博客</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">醒来或者吃饱又是一年，相遇然后分别就在一天。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Will Chou</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/imgload/avater.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Will Chou</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Coding My Life！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术博客">技术博客</a></li>
+		        
+					<li><a href="/tags/读书笔记">读书笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/werchou" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/WerChou" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-GAD暑期训练营MiniGame3D塔防（下）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/24/GAD暑期训练营MiniGame3D塔防（下）/" class="article-date">
+  	<time datetime="2016-09-24T02:45:23.000Z" itemprop="datePublished">2016-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GAD暑期训练营MiniGame:3D塔防（下）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术博客/">技术博客</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="AI子系统"><a href="#AI子系统" class="headerlink" title="AI子系统"></a>AI子系统</h3><h4 id="状态基类"><a href="#状态基类" class="headerlink" title="状态基类"></a>状态基类</h4><p><strong>BaseState</strong> ：定义了状态基类，其他所有状态都继承了它。它提供了三个虚函数enter(),execute()和exit()，提供状态进入,执行和退出时的逻辑动作。</p>
+<p><strong>StateMachine</strong>: 定义了一个状态机类，维护当前状态的更新和状态转换。它有指向GameEnity的指针,还维护CurrentState, PreState等成员，还有Update(),ChangeState等方法。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BaseState</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">enter</span>(<span class="params">GameEnity *Owner</span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">execute</span>(<span class="params">GameEnity *Owner</span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">exit</span>(<span class="params">GameEnity *Owner</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">StateMachine</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    GameEnity * Owner;</span><br><span class="line">    BaseState * CurrentState;</span><br><span class="line">    BaseState * PreState;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(CurrentState)&#123;</span><br><span class="line">            CurrentState-&gt;execute(Owner);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="士兵的AI实现"><a href="#士兵的AI实现" class="headerlink" title="士兵的AI实现"></a>士兵的AI实现</h4><p>在游戏中，我把士兵分为两种类型的士兵：在一定范围内移动的士兵Tower Soldier和按一定路径行军的士兵Attack Soldier。分别为他们设计了两种不同的AI逻辑。<br><strong>TowerSoldierControl</strong>: 为在一定范围内移动的士兵设计的逻辑脚本。<br>该脚本除了存储士兵的一般属性外，还维护了一个状态列表和当前状态。<br>下面介绍它的两种状态：<br>TSPatrolState：巡逻状态<br>enter()，在巡逻半径内生成一个随机位置，并移动到该位置巡逻。<br>execute()，角色会在巡逻半径内随机位置进行巡逻，检查巡逻半径内是否有敌人，如果有，转为TSAttackState状态。<br>TSAttackState：进攻状态<br>enter():判断当前敌人是否为空，如果不为空，判断敌人是否在攻击半径内，如果在，移动到敌人位置并攻击。如果敌人出了攻击半径，重置敌人对象，继续寻找，如果攻击半径内确定找不到敌人了，会转为TSPatrolState状态。</p>
+<p><strong>AttackSoldierControl</strong>：为按一定路径行军的士兵设计的逻辑脚本。<br>该脚本大致思想和上面差不多，也是维护了一个状态列表和当前状态。此外，还维护了一个行军路径列表，用来控制士兵的行军路线。<br>下面介绍下他的两种状态<br>ASPatrolState：行军时的巡逻状态<br>execute(): 检查距离下一个路径点的距离，如果小于0.5，更新路径点。检查攻击范围内是否有敌人，如果有，转为ASAttackState状态。<br>ASAttackState：行军时的攻击状态<br>execute(): 也是判断敌人是否为空，如果不为空，判断是否在攻击范围内，不同之处在于，角色不移动到敌人位置，而是继续在路径上。如果攻击范围内找不到敌人，转为ASPatrolState状态。</p>
+<h4 id="飞船的AI实现"><a href="#飞船的AI实现" class="headerlink" title="飞船的AI实现"></a>飞船的AI实现</h4><p><strong>TowerFactory</strong>：负责基地生成不同的飞船。<br><strong>UFOArmyControl</strong>：防御型飞船的控制脚本，主要功能是批量的生成外星人小兵，并初始化他们。<br><strong>AttackTowerControl</strong>：进攻型飞船的控制脚本，主要是探测敌人是否在攻击范围内，如果存在敌人，则对敌人进行攻击。<br><strong>MovingTowerControl</strong>: 移动型飞船的控制脚本，主要功能有吸收敌人，反转敌人的行军路径等特殊的功能。</p>
+<h3 id="UI和交互的设计思路"><a href="#UI和交互的设计思路" class="headerlink" title="UI和交互的设计思路"></a>UI和交互的设计思路</h3><h4 id="UI的设计思路"><a href="#UI的设计思路" class="headerlink" title="UI的设计思路"></a>UI的设计思路</h4><p>我把UI分为三部分，分别是位于游戏上方的玩家状态栏，中间的菜单提示栏和下方的技能栏，下面一一介绍：</p>
+<ol>
+<li>玩家状态栏：有剩余金钱、剩余生命值、剩余时间和暂停按钮。前三个是通过GameKernel来更新，暂停按钮可以调出中间的菜单。</li>
+<li>菜单提示栏：有胜负提示栏、用户得分栏和三个菜单组成。其中胜负提示栏会在游戏结束时提示玩家输赢，得分栏会根据用户的表现不同提示1-3颗星星，三个菜单提供重新开始、返回开始界面和恢复游戏。</li>
+<li>技能栏：位于画面的左下方，有技能冷却时间倒计时提示，冷却时还有颜色区分。通过它可以建造移动型飞船。</li>
+</ol>
+<h4 id="交互的思路"><a href="#交互的思路" class="headerlink" title="交互的思路"></a>交互的思路</h4><p>因为时间有限，没有太过于考虑交互方面的细节，只是让用户完成游戏的同时，不会像一般的塔防一样，局限于固定的视角和位置，因此可以通过键盘改变视角和远近，同时也不会影响到鼠标的操作。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这个游戏从构思到做完大概花了5天多的时间，时间紧迫，但是，在一些玩法上，并没有局限于一般塔防的游戏元素，做了一些微创新。比如：</p>
+<ol>
+<li>因为是3D塔防，因此添加了可以移动视角和变换大小的功能。</li>
+<li>飞船不再局限在建造在基地上，添加了可以任意放置的飞船。</li>
+<li>敌人的行军局限不再是固定好的，游戏设计的时候可以通过配置选择敌人是按照固定路径行军或超目标自由行军。<br>在游戏脚本文件夹里，还有一个重构的文件夹，里面的脚本是我后期打算重构时用的，暂时没有被使用。<br>这个游戏原本设计的是玩家可以选择外星人或者地球人，但是因为时间有限，暂时完成了扮演外星人的部分。后面如果有时间我会通过重构的框架再添加地球人模块和更多的地图关卡。</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/23/GAD暑期训练营MiniGame3D塔防（上）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GAD暑期训练营MiniGame:3D塔防（上）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="GAD暑期训练营MiniGame3D塔防（下）" data-title="GAD暑期训练营MiniGame:3D塔防（下）" data-url="http://yoursite.com/2016/09/24/GAD暑期训练营MiniGame3D塔防（下）/" data-author-key="10"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"werchou"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Will Chou
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
